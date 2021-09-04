@@ -86,13 +86,14 @@ func main() {
 	initializedMap := map[int]string{1:"one",2:"two"}
 	fmt.Println("initializedMap",initializedMap);
 	
-	//checking if map contains a thing. If the thing exists ok will be true. You use the key to access the value.
+	//checking if map contains a thing. If the thing exists ok will be true. You use the key to access the value. Remember to use the _-operator if you have 
+	//no need for the actual value
 	
 	if val, ok := initializedMap[2]; ok {
 		fmt.Printf("Initialized Map contains %s\n",val)
 	}
 	
-	if val, ok := initializedMap[3]; !ok {
-		fmt.Printf("Initialized Map does not contain that value or key %s\n",val)
+	if _, ok := initializedMap[3]; !ok {
+		fmt.Printf("Initialized Map does not contain that value or key\n")
 	}
 }
