@@ -125,13 +125,18 @@ func login(w http.ResponseWriter, r *http.Request) {
 							loggedSessions = append(loggedSessions,Session{TTL:now,token:t})
 							data := MyToken{Token:t}
 							json.NewEncoder(w).Encode(data)
+							return
 						} else {
 							w.WriteHeader(http.StatusForbidden)
 							message := BackendMessage{Message:"forbidden"}
-							json.NewEncoder(w).Encode(message)					
+							json.NewEncoder(w).Encode(message)
+							return
 						}
 					}
 				}
+				w.WriteHeader(http.StatusForbidden)
+				message := BackendMessage{Message:"forbidden"}
+				json.NewEncoder(w).Encode(message)				
 			default:
 				message := BackendMessage{Message:"unknown command"}
 				json.NewEncoder(w).Encode(message)
