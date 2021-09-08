@@ -71,7 +71,8 @@ func handleDeleteAndPut(w http.ResponseWriter, r *http.Request) {
 						shoppingItems = append(shoppingItems[:i],shoppingItems[i+1:]...)
 					}
 				}
-				w.Write([]byte("{message:'success'}"))
+				message := BackendMessage{Message:"success"}
+				json.NewEncoder(w).Encode(message)
 			case http.MethodPut:
 				var t_item Item
 				json.NewDecoder(r.Body).Decode(&t_item)
