@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Contact List</title>
+	</head>
+	<body>
+		<ul style="list-style-type:none;margin:auto">
+			<li><a href="/">Contact list </a></li>
+			<li><a href="/form">Add new contact </a></li>
+		</ul>
+		<hr/>
+		<h3>{{.FormName}}</h1>
+		<form method="POST" action="/">
+			<label>First Name:</label><br />
+			<input type="text" name="firstname"><br />
+			<label>Last Name:</label><br />
+			<input type="text" name="lastname"><br />
+			<label>Email:</label><br />
+			<input type="email" name="email"><br />
+			<label>Phone:</label><br />
+			<input type="text" name="phone"><br />
+			<label>Address:</label><br />
+			<input type="text" name="address"><br />
+			<label>City:</label><br />
+			<input type="text" name="city"><br />
+			<input type="submit">
+		</form>
+	</body>
+</html>
